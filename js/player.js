@@ -28,9 +28,14 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(moveDirection) {
-  if(moveDirection != undefined){
+  if(this.isValidMove(moveDirection)){
     this[moveDirection]();
   }
+}
+
+Player.prototype.isValidMove = function(moveDirection) {
+  var permittedDirections = ['left', 'right', 'up', 'down'];
+  return permittedDirections.indexOf(moveDirection) != -1;
 }
 
 Player.prototype.left = function() {
