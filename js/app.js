@@ -3,9 +3,16 @@
 // Place the player object in a variable called player
 
 var allEnemies = [];
-allEnemies.push(new Enemy(101, 83, Enemy.getRandomStartingRow(), 0, 5, 4, 'images/enemy-bug.png'));
 
-var player = new Player(101, 83, 5, 2, 5, 4, 'images/char-boy.png');
+var player = null;
+
+var resetGame = function () {
+    allEnemies = [];
+    allEnemies.push(new Enemy(101, 83, Enemy.getRandomStartingRow(), 0, 5, 4, 'images/enemy-bug.png'));
+    player = new Player(101, 83, 5, 2, 5, 4, 'images/char-boy.png');
+}
+
+resetGame();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
