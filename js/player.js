@@ -43,7 +43,6 @@ Player.prototype.left = function() {
   if(proposedXMove >= this.xMin) {
     this.x = proposedXMove;
   }
-  return this.x;
 }
 
 Player.prototype.right = function() {
@@ -51,7 +50,6 @@ Player.prototype.right = function() {
   if(proposedXMove <= this.xMax) {
     this.x = proposedXMove;
   }
-  return this.x;
 }
 
 Player.prototype.up = function() {
@@ -59,7 +57,6 @@ Player.prototype.up = function() {
   if(proposedYMove >= this.yMin) {
     this.y = proposedYMove;
   }
-  return this.y;
 }
 
 Player.prototype.down = function() {
@@ -67,5 +64,4 @@ Player.prototype.down = function() {
   if(proposedYMove <= this.yMax) {
     this.y = proposedYMove;
   }
-  return this.y;
 }
