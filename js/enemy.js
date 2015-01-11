@@ -2,6 +2,7 @@
 // Enemy is a subclass of Player
 var Enemy = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, totalCols, sprite) {
   Player.apply(this, arguments); // call super constructor
+  this.movementSpeed = (Math.random() * Enemy.getRandomInt(1,4));
 }
 
 // subclass (Enemy) extends superclass (Player)
@@ -14,13 +15,12 @@ Enemy.prototype.update = function(dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
+  this.x += this.xMoveSize * dt * this.movementSpeed;
 }
 
-Enemy.getRandomStartingRow = function() {
-  var minRow = 1;
-  var maxRow = 3;
-  // Returns a random integer between minRow (included) and maxRow (included)
+Enemy.getRandomInt = function(min, max) {
+  // Returns a random integer between min (included) and max (included)
   // Using Math.round() will give you a non-uniform distribution!
   // Taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  return Math.floor(Math.random() * (maxRow - minRow + 1)) + minRow;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
