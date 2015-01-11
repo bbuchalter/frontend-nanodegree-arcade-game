@@ -18,6 +18,10 @@ Enemy.prototype.update = function(dt) {
   this.x += this.xMoveSize * dt * this.movementSpeed;
 }
 
+Enemy.prototype.isOnBoard = function() {
+  return this.x < (this.xMax + this.xMoveSize);
+}
+
 Enemy.getRandomInt = function(min, max) {
   // Returns a random integer between min (included) and max (included)
   // Using Math.round() will give you a non-uniform distribution!

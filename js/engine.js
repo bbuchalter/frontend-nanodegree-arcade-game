@@ -103,7 +103,7 @@ var Engine = (function(global) {
         var enemyRemovalCount = 0;
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
-            if(enemy.x < enemy.xMax) {
+            if(enemy.isOnBoard()) {
                 enemiesToKeep.push(enemy);
             } else {
                 enemyRemovalCount += 1;
