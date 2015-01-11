@@ -213,10 +213,10 @@ var Engine = (function(global) {
     Resources.load([
         'images/stone-block.png',
         'images/water-block.png',
-        'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/grass-block.png'
     ]);
+    Resources.load(Config.enemyImage);
+    Resources.load(Config.playerImages);
     Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window

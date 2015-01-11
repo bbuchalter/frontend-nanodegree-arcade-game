@@ -15,7 +15,7 @@ var resetGame = function (enemyCount) {
       Config.initialPlayerCol,
       Config.gameRowCount,
       Config.gameColCount,
-      Config.playerImage);
+      Config.randomPlayerImage());
 }
 var addNewEnemies = function(enemyCount) {
     for(var i = 0; i < enemyCount; i++) {

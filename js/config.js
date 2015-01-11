@@ -24,6 +24,17 @@ Config = {
 // Adds padding to collision detection.
   allowedRangeForTouchingInPixels: 15,
 
-  playerImage: 'images/char-boy.png',
-  enemyImage: 'images/enemy-bug.png'
+  playerImages: ['images/char-boy.png',
+    'images/char-cat-girl.png',
+    'images/char-horn-girl.png',
+    'images/char-pink-girl.png',
+    'images/char-princess-girl.png'],
+
+  enemyImage: 'images/enemy-bug.png',
+
+  randomPlayerImage: function() {
+    var randomImageIndex = RandomHelpers.getRandomInt(0, this.playerImages.length - 1);
+    console.log(this.playerImages[randomImageIndex]);
+    return this.playerImages[randomImageIndex];
+  }
 }
