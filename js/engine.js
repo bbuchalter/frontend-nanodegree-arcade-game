@@ -87,8 +87,9 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             // Player and enemy on same row
             if(Math.floor(enemy.y) == Math.floor(player.y)) {
+                // Player and enemy touching leading or trailing edges
                 if(isLeadingEdgeOfEnemyTouchingPlayer(enemy) || isTrailingEdgeOfEnemyTouchingPlayer(enemy)){
-                    resetGame(initialEnemyCount);
+                    resetGame(Config.initialEnemyCount);
                 }
             }
         });
@@ -96,9 +97,9 @@ var Engine = (function(global) {
 
     function isLeadingEdgeOfEnemyTouchingPlayer(enemy) {
         // Right side of enemy hit left side of player
-        enemyLeadingX = enemy.leadingX() - allowedRangeForTouchingInPixels;
+        enemyLeadingX = enemy.leadingX() - Config.allowedRangeForTouchingInPixels;
         playerTrailingX = player.x;
-        playerLeadingX = player.leadingX() - allowedRangeForTouchingInPixels;
+        playerLeadingX = player.leadingX() - Config.allowedRangeForTouchingInPixels;
         return isBetween(enemyLeadingX, player.x, playerLeadingX);
     }
 
@@ -107,7 +108,7 @@ var Engine = (function(global) {
         // Left side of enemy hit right side of player
         enemyTrailingX = enemy.x;
         playerTrailingX = player.x;
-        playerLeadingX = player.leadingX() - allowedRangeForTouchingInPixels;
+        playerLeadingX = player.leadingX() - Config.allowedRangeForTouchingInPixels;
         return isBetween(enemyTrailingX, player.x, playerLeadingX);
     }
 

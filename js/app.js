@@ -2,32 +2,34 @@
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+// Data store for enemy and player objects.
 var allEnemies = [];
 var player = null;
-var gameRowCount = 5;
-var gameColCount = 4;
-var initialPlayerRow = 5;
-var initialPlayerCol = 2;
-var xMoveSize = 101;
-var yMoveSize = 83;
-var enemyMinRow = 1;
-var enemyMaxRow = 3;
-var initialEnemyCol = -1;
-var initialEnemyCount = 3;
-var allowedRangeForTouchingInPixels = 15;
 
 var resetGame = function (enemyCount) {
     allEnemies = [];
     addNewEnemies(enemyCount);
-    player = new Player(xMoveSize, yMoveSize, initialPlayerRow, initialPlayerCol, gameRowCount, gameColCount, 'images/char-boy.png');
+    player = new Player(Config.xMoveSize,
+      Config.yMoveSize,
+      Config.initialPlayerRow,
+      Config.initialPlayerCol,
+      Config.gameRowCount,
+      Config.gameColCount,
+      Config.playerImage);
 }
 var addNewEnemies = function(enemyCount) {
     for(var i = 0; i < enemyCount; i++) {
-        allEnemies.push(new Enemy(xMoveSize, yMoveSize, Enemy.getRandomInt(enemyMinRow, enemyMaxRow), initialEnemyCol, gameRowCount, gameColCount, 'images/enemy-bug.png'));
+        allEnemies.push(new Enemy(Config.xMoveSize,
+          Config.yMoveSize,
+          Enemy.getRandomInt(Config.enemyMinRow, Config.enemyMaxRow),
+          Config.initialEnemyCol,
+          Config.gameRowCount,
+          Config.gameColCount,
+          Config.enemyImage));
     }
 }
 
-resetGame(initialEnemyCount);
+resetGame(Config.initialEnemyCount);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
