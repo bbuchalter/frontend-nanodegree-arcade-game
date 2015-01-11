@@ -4,8 +4,8 @@
 
 var Player = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, totalCols) {
   // Calculate the initial position based on a zero-indexed initialRow and initialCol
-  this.x = xMoveSize * initialCol;
-  this.y = yMoveSize * initialRow;
+  this.x = (xMoveSize * initialCol);
+  this.y = (yMoveSize * initialRow) - 30;
 
   // Record the size of each left/right, up/down move.
   this.xMoveSize = xMoveSize;
