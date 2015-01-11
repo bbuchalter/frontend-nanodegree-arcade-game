@@ -13,6 +13,7 @@ var yMoveSize = 83;
 var enemyMinRow = 1;
 var enemyMaxRow = 3;
 var initialEnemyCol = -1;
+var initialEnemyCount = 3;
 
 var resetGame = function (enemyCount) {
     allEnemies = [];
@@ -25,7 +26,7 @@ var addNewEnemies = function(enemyCount) {
     }
 }
 
-resetGame(3);
+resetGame(initialEnemyCount);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
