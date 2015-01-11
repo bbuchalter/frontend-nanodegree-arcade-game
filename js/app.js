@@ -23,6 +23,15 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+Enemy.prototype.getRandomStartingRow = function() {
+    var minRow = 1;
+    var maxRow = 3;
+    // Returns a random integer between minRow (included) and maxRow (included)
+    // Using Math.round() will give you a non-uniform distribution!
+    // Taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    return Math.floor(Math.random() * (maxRow - minRow + 1)) + minRow;
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
