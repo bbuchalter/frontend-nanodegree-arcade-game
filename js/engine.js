@@ -99,9 +99,18 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
+        var enemiesToKeep = [];
+        var enemyRemovalCount = 0;
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
+            if(enemy.x < enemy.xMax) {
+                enemiesToKeep.push(enemy);
+            } else {
+                enemyRemovalCount += 1;
+            }
         });
+        allEnemies = enemiesToKeep;
+        addNewEnemies(enemyRemovalCount);
         player.update();
     }
 

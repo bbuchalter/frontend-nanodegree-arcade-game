@@ -16,11 +16,13 @@ var initialEnemyCol = -1;
 
 var resetGame = function (enemyCount) {
     allEnemies = [];
+    addNewEnemies(enemyCount);
+    player = new Player(xMoveSize, yMoveSize, initialPlayerRow, initialPlayerCol, gameRowCount, gameColCount, 'images/char-boy.png');
+}
+var addNewEnemies = function(enemyCount) {
     for(var i = 0; i < enemyCount; i++) {
         allEnemies.push(new Enemy(xMoveSize, yMoveSize, Enemy.getRandomInt(enemyMinRow, enemyMaxRow), initialEnemyCol, gameRowCount, gameColCount, 'images/enemy-bug.png'));
     }
-
-    player = new Player(xMoveSize, yMoveSize, initialPlayerRow, initialPlayerCol, gameRowCount, gameColCount, 'images/char-boy.png');
 }
 
 resetGame(3);
