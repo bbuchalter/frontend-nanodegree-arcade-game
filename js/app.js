@@ -14,6 +14,7 @@ var enemyMinRow = 1;
 var enemyMaxRow = 3;
 var initialEnemyCol = -1;
 var initialEnemyCount = 3;
+var allowedRangeForTouchingInPixels = 15;
 
 var resetGame = function (enemyCount) {
     allEnemies = [];

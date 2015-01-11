@@ -85,10 +85,35 @@ var Engine = (function(global) {
 
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {
-            if(enemy.x == player.x && enemy.y == player.y) {
-                resetGame();
+            // Player and enemy on same row
+            if(Math.floor(enemy.y) == Math.floor(player.y)) {
+                if(isLeadingEdgeOfEnemyTouchingPlayer(enemy) || isTrailingEdgeOfEnemyTouchingPlayer(enemy)){
+                    resetGame(initialEnemyCount);
+                }
             }
         });
+    }
+
+    function isLeadingEdgeOfEnemyTouchingPlayer(enemy) {
+        // Right side of enemy hit left side of player
+        enemyLeadingX = enemy.leadingX() - allowedRangeForTouchingInPixels;
+        playerTrailingX = player.x;
+        playerLeadingX = player.leadingX() - allowedRangeForTouchingInPixels;
+        return isBetween(enemyLeadingX, player.x, playerLeadingX);
+    }
+
+
+    function isTrailingEdgeOfEnemyTouchingPlayer(enemy) {
+        // Left side of enemy hit right side of player
+        enemyTrailingX = enemy.x;
+        playerTrailingX = player.x;
+        playerLeadingX = player.leadingX() - allowedRangeForTouchingInPixels;
+        return isBetween(enemyTrailingX, player.x, playerLeadingX);
+    }
+
+
+    function isBetween(x, min, max) {
+        return x >= min && x <= max;
     }
 
     /* This is called by the update function  and loops through all of the

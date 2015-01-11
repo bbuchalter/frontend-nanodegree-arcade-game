@@ -68,3 +68,7 @@ Player.prototype.down = function() {
     this.y = proposedYMove;
   }
 }
+
+Player.prototype.leadingX = function() {
+  return this.x + this.xMoveSize;
+}
