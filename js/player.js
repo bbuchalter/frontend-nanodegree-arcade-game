@@ -2,17 +2,20 @@
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function(initialRow, initialCol, xMoveSize, yMoveSize, rows, cols) {
+var Player = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, totalCols) {
+  // Calculate the initial position based on a zero-indexed initialRow and initialCol
   this.x = xMoveSize * initialCol;
   this.y = yMoveSize * initialRow;
+
+  // Record the size of each left/right, up/down move.
   this.xMoveSize = xMoveSize;
   this.yMoveSize = yMoveSize;
-  this.rows = rows;
-  this.cols = cols;
+
+  // The bounds the player can move calculated by the zero-indexed totalRows and totalCols
   this.xMin = xMoveSize * -1;
-  this.xMax = xMoveSize * this.cols;
+  this.xMax = xMoveSize * totalCols;
   this.yMin = yMoveSize * -1;
-  this.yMax = yMoveSize * this.rows;
+  this.yMax = yMoveSize * totalRows;
 
   // The image/sprite for our player, this uses
   // a helper we've provided to easily load images
