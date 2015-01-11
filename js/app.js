@@ -2,7 +2,7 @@
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
-allEnemies.push(new Enemy());
+allEnemies.push(new Enemy(101, 83, 1, 3, 5, 4, 'images/enemy-bug.png'));
 
 var player = new Player(101, 83, 5, 2, 5, 4, 'images/char-boy.png');
 
