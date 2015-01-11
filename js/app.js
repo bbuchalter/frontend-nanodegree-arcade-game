@@ -21,7 +21,7 @@ var addNewEnemies = function(enemyCount) {
     for(var i = 0; i < enemyCount; i++) {
         allEnemies.push(new Enemy(Config.xMoveSize,
           Config.yMoveSize,
-          Enemy.getRandomInt(Config.enemyMinRow, Config.enemyMaxRow),
+          RandomHelpers.getRandomInt(Config.enemyMinRow, Config.enemyMaxRow),
           Config.initialEnemyCol,
           Config.gameRowCount,
           Config.gameColCount,

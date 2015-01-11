@@ -2,7 +2,7 @@
 // Enemy is a subclass of Player
 var Enemy = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, totalCols, sprite) {
   Player.apply(this, arguments); // call super constructor
-  this.movementSpeed = Enemy.getRandomArbitrary(1,4);
+  this.movementSpeed = RandomHelpers.getRandomArbitrary(1,4);
 }
 
 // subclass (Enemy) extends superclass (Player)
@@ -20,16 +20,4 @@ Enemy.prototype.update = function(dt) {
 
 Enemy.prototype.isOnBoard = function() {
   return this.x < (this.xMax + this.xMoveSize);
-}
-
-Enemy.getRandomArbitrary = function(min, max) {
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  return Math.random() * (max - min) + min;
-}
-
-Enemy.getRandomInt = function(min, max) {
-  // Returns a random integer between min (included) and max (included)
-  // Using Math.round() will give you a non-uniform distribution!
-  // Taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
