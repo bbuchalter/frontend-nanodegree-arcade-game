@@ -44,24 +44,46 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Player.prototype.handleInput = function(input) {
-    var xMoveSize = 100;
-    var yMoveSize = 83;
-    switch(input) {
-        case 'left':
-            this.x = this.x - xMoveSize;
-            break;
-        case 'right':
-            this.x = this.x + xMoveSize;
-            break;
-        case 'up':
-            this.y = this.y - yMoveSize;
-            break;
-        case 'down':
-            this.y = this.y + yMoveSize;
-            break;
+Player.prototype.handleInput = function(moveDirection) {
+    if(moveDirection != undefined){
+        this[moveDirection]();
     }
-    console.log(input, this.x, this.y);
+}
+
+Player.prototype.left = function() {
+    var xMoveSize = 100;
+    var proposedXMove = this.x - xMoveSize;
+    if(proposedXMove >= 0) {
+        this.x = proposedXMove;
+    }
+    return this.x;
+}
+
+Player.prototype.right = function() {
+    var xMoveSize = 100;
+    var proposedXMove = this.x + xMoveSize;
+    if(proposedXMove <= 400) {
+        this.x = proposedXMove;
+    }
+    return this.x;
+}
+
+Player.prototype.up = function() {
+    var yMoveSize = 83;
+    var proposedYMove = this.y - yMoveSize;
+    if(proposedYMove >= -35) {
+        this.y = proposedYMove;
+    }
+    return this.y;
+}
+
+Player.prototype.down = function() {
+    var yMoveSize = 83;
+    var proposedYMove = this.y + yMoveSize;
+    if(proposedYMove <= 380) {
+        this.y = proposedYMove;
+    }
+    return this.y;
 }
 
 
