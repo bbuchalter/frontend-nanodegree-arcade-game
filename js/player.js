@@ -2,9 +2,9 @@
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function() {
-  this.x = 200;
-  this.y = 380;
+var Player = function(initialX, initialY) {
+  this.x = initialX;
+  this.y = initialY;
 
   // The image/sprite for our player, this uses
   // a helper we've provided to easily load images
