@@ -2,15 +2,17 @@
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function(initialX, initialY, xMoveSize, yMoveSize, xMin, xMax, yMin, yMax) {
-  this.x = initialX;
-  this.y = initialY;
+var Player = function(initialRow, initialCol, xMoveSize, yMoveSize, rows, cols) {
+  this.x = xMoveSize * initialCol;
+  this.y = yMoveSize * initialRow;
   this.xMoveSize = xMoveSize;
   this.yMoveSize = yMoveSize;
-  this.xMin = xMin;
-  this.xMax = xMax;
-  this.yMin = yMin;
-  this.yMax = yMax;
+  this.rows = rows;
+  this.cols = cols;
+  this.xMin = xMoveSize * -1;
+  this.xMax = xMoveSize * this.cols;
+  this.yMin = yMoveSize * -1;
+  this.yMax = yMoveSize * this.rows;
 
   // The image/sprite for our player, this uses
   // a helper we've provided to easily load images
@@ -38,7 +40,7 @@ Player.prototype.isValidMove = function(moveDirection) {
 
 Player.prototype.left = function() {
   var proposedXMove = this.x - this.xMoveSize;
-  if(proposedXMove >= this.xMin) {
+  if(proposedXMove > this.xMin) {
     this.x = proposedXMove;
   }
 }
@@ -52,7 +54,7 @@ Player.prototype.right = function() {
 
 Player.prototype.up = function() {
   var proposedYMove = this.y - this.yMoveSize;
-  if(proposedYMove >= this.yMin) {
+  if(proposedYMove > this.yMin) {
     this.y = proposedYMove;
   }
 }
