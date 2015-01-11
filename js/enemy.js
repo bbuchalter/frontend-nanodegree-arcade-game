@@ -16,7 +16,7 @@ Enemy.prototype.update = function(dt) {
   // all computers.
 }
 
-Enemy.prototype.getRandomStartingRow = function() {
+Enemy.getRandomStartingRow = function() {
   var minRow = 1;
   var maxRow = 3;
   // Returns a random integer between minRow (included) and maxRow (included)
