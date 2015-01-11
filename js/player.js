@@ -2,9 +2,11 @@
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function(initialX, initialY) {
+var Player = function(initialX, initialY, xMoveSize, yMoveSize) {
   this.x = initialX;
   this.y = initialY;
+  this.xMoveSize = xMoveSize;
+  this.yMoveSize = yMoveSize;
 
   // The image/sprite for our player, this uses
   // a helper we've provided to easily load images
@@ -28,8 +30,7 @@ Player.prototype.handleInput = function(moveDirection) {
 }
 
 Player.prototype.left = function() {
-  var xMoveSize = 100;
-  var proposedXMove = this.x - xMoveSize;
+  var proposedXMove = this.x - this.xMoveSize;
   if(proposedXMove >= 0) {
     this.x = proposedXMove;
   }
@@ -37,8 +38,7 @@ Player.prototype.left = function() {
 }
 
 Player.prototype.right = function() {
-  var xMoveSize = 100;
-  var proposedXMove = this.x + xMoveSize;
+  var proposedXMove = this.x + this.xMoveSize;
   if(proposedXMove <= 400) {
     this.x = proposedXMove;
   }
@@ -46,8 +46,7 @@ Player.prototype.right = function() {
 }
 
 Player.prototype.up = function() {
-  var yMoveSize = 83;
-  var proposedYMove = this.y - yMoveSize;
+  var proposedYMove = this.y - this.yMoveSize;
   if(proposedYMove >= -35) {
     this.y = proposedYMove;
   }
@@ -55,8 +54,7 @@ Player.prototype.up = function() {
 }
 
 Player.prototype.down = function() {
-  var yMoveSize = 83;
-  var proposedYMove = this.y + yMoveSize;
+  var proposedYMove = this.y + this.yMoveSize;
   if(proposedYMove <= 380) {
     this.y = proposedYMove;
   }
