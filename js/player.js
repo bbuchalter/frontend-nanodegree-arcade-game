@@ -2,7 +2,7 @@
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, totalCols) {
+var Player = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, totalCols, sprite) {
   // Calculate the initial position based on a zero-indexed initialRow and initialCol
   this.x = (xMoveSize * initialCol);
   this.y = (yMoveSize * initialRow) - 30;
@@ -19,7 +19,7 @@ var Player = function(xMoveSize, yMoveSize, initialRow, initialCol, totalRows, t
 
   // The image/sprite for our player, this uses
   // a helper we've provided to easily load images
-  this.sprite = 'images/char-boy.png';
+  this.sprite = sprite;
 }
 
 Player.prototype.update = function() {
