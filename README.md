@@ -11,7 +11,7 @@ Based on [video](https://www.youtube.com/watch?v=p2JhGrrwLuQ&feature=youtu.be) a
 * Vehicle-player collision resets the screen
 
 ## How to Run the Game
-Open `index.html` in any modern browser or visit http://buchalter.github.io/frontend-nanodegree-arcade-game
+Open `index.html` in any modern browser or visit http://bbuchalter.github.io/frontend-nanodegree-arcade-game
 
 ## Resources Used
 * [Object Oriented JavaScript course @ Udacity](https://www.udacity.com/course/viewer#!/c-ud015-nd)
