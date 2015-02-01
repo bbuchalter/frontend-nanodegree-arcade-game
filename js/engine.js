@@ -84,6 +84,10 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
+        // Player has reached water.
+        if(Math.floor(player.y) == -30) {
+          resetGame(Config.initialEnemyCount);
+        }
         allEnemies.forEach(function(enemy) {
             // Player and enemy on same row
             if(Math.floor(enemy.y) == Math.floor(player.y)) {
